@@ -3,9 +3,9 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const BASE_URL = 'https://6484aeb0ee799e321626ecf8.mockapi.io';
+// const BASE_URL = 'https://6484aeb0ee799e321626ecf8.mockapi.io';
 
-axios.defaults.baseURL = BASE_URL;
+// axios.defaults.baseURL = BASE_URL;
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
