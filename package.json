@@ -4,13 +4,21 @@
   "private": true,
   "homepage": "https://OlgaTikhonchik.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "formik": "^2.4.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-redux": "^8.1.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.3"
+    "react-toastify": "^9.1.3",
+    "web-vitals": "^2.1.3",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
