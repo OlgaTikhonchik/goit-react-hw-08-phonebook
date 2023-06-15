@@ -6,7 +6,7 @@ export const SharedLayout = () => {
   return (
     <div>
       <AppBar />
-      <Suspense fallback={null}>
+      <Suspense fallback={<div>Loading....</div>}>
         <Outlet />
       </Suspense>
     </div>
