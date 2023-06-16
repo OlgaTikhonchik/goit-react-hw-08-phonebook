@@ -51,6 +51,7 @@ export const ContactForm = () => {
           dispatch(addContact({ id, name, number }));
           resetForm();
         };
+
         onAddContact({ ...values });
       }}
       validationSchema={schema}
