@@ -35,7 +35,13 @@ const RegisterPage = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="">
           Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            placeholder="Choose your Name"
+          />
         </label>
 
         <label htmlFor="">
@@ -45,6 +51,7 @@ const RegisterPage = () => {
             name="email"
             value={email}
             onChange={handleChange}
+            placeholder="Choose your Email"
           />
         </label>
         <label htmlFor="">
@@ -54,6 +61,7 @@ const RegisterPage = () => {
             name="password"
             value={password}
             onChange={handleChange}
+            placeholder="Choose your Password"
           />
         </label>
 
