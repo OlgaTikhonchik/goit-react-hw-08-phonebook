@@ -36,7 +36,7 @@ const LoginPage = () => {
             name="email"
             value={email}
             onChange={handleChange}
-            placeholder=""
+            placeholder="Choose your Email"
           />
         </label>
 
@@ -47,7 +47,7 @@ const LoginPage = () => {
             name="password"
             value={password}
             onChange={handleChange}
-            placeholder=""
+            placeholder="Choose your Password"
           />
         </label>
 
