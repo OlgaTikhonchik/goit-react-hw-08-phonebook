@@ -45,7 +45,7 @@ export function App() {
           }
         />
         <Route
-          paht="contacts"
+          path="contacts"
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
