@@ -14,22 +14,25 @@ export const ContactList = () => {
   const filteredContacts = contacts?.filter(contact =>
     contact?.name?.toLowerCase().includes(filter.toLowerCase())
   );
+  console.log(filteredContacts);
 
   // if (!filteredContacts?.length) {
   //   alert('No contacts matching your request');
+  //   return;
   // }
 
-  const store = useSelector(store => store);
-  console.log(store);
+  // const store = useSelector(store => store);
+  // console.log(store);
 
   const contactsStore = useSelector(store => store.contacts);
   console.log(contactsStore);
 
   return (
     <ListContasts>
-      {filteredContacts.map(({ id, name, number }) => (
-        <ContactItem key={id} id={id} name={name} number={number} />
-      ))}
+      {filteredContacts &&
+        filteredContacts.map(({ id, name, number }) => (
+          <ContactItem key={id} id={id} name={name} number={number} />
+        ))}
     </ListContasts>
   );
 };
