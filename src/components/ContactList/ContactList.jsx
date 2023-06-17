@@ -23,11 +23,6 @@ export const ContactList = () => {
 
   console.log(filteredContacts);
 
-  // if (!filteredContacts?.length) {
-  //   alert('No contacts matching your request');
-  //   return;
-  // }
-
   const store = useSelector(store => store);
   console.log('store:', store);
   const contactsStore = useSelector(store => store.contacts);
