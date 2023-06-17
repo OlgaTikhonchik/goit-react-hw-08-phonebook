@@ -4,10 +4,11 @@ import { ContactItem } from 'components/ContactItem';
 import { ListContasts } from './ContactList.styled';
 
 import { selectContacts, selectFilter } from 'redux/selectors';
+// import { connect } from 'formik';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
-
+  //const contacts = useSelector(store => store.contacts.contacts.items);
   console.log(contacts);
   const filter = useSelector(selectFilter);
 
@@ -21,11 +22,11 @@ export const ContactList = () => {
   //   return;
   // }
 
-  // const store = useSelector(store => store);
-  // console.log(store);
+  const store = useSelector(store => store);
+  console.log(store);
 
   const contactsStore = useSelector(store => store.contacts);
-  console.log(contactsStore);
+  console.log('contactsStore:', contactsStore);
 
   return (
     <ListContasts>
@@ -36,6 +37,12 @@ export const ContactList = () => {
     </ListContasts>
   );
 };
+// const mapStateToProps = state => ({
+//   contacts: selectContacts(state),
+//   filter: selectFilter(state),
+// });
+
+// export default connect(mapStateToProps)(ContactList);
 
 ContactList.propTypes = {
   contacs: PropTypes.arrayOf(
