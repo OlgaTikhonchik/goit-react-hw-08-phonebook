@@ -8,7 +8,7 @@ export const Filter = () => {
   const dispatch = useDispatch();
   //const filter = useSelector(selectFilter);
   const filter = useSelector(state => state.contacts.contacts.filter);
-  //console.log(filter);
+
   //const filter = useSelector(store => store.filter);
   console.log(filter);
 
