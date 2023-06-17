@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { Button, Error, FormContact, Input, Label } from './ContactForm.styled';
-import { selectContacts } from 'redux/selectors';
+// import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,7 +23,8 @@ const nameInputId = nanoid();
 const numberInputId = nanoid();
 
 export const ContactForm = () => {
-  const contacts = useSelector(selectContacts);
+  //const contacts = useSelector(selectContacts);
+  const contacts = useSelector(store => store.contacts.contacts.items);
   console.log(contacts);
   const dispatch = useDispatch();
 
@@ -49,6 +50,7 @@ export const ContactForm = () => {
             return toast.error(`This contact is already in contacts`);
           }
           dispatch(addContact({ id, name, number }));
+
           resetForm();
         };
 
