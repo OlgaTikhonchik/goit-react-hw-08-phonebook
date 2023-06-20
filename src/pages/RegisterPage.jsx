@@ -31,7 +31,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <MUI.Card sx={{ maxWidth: '50%', height: 850 }}>
+    <MUI.Card sx={{ maxWidth: '50%', height: 850, backgroundColor: '#bba095' }}>
       <MUI.CardMedia
         sx={{ height: 450 }}
         image="https://www.pngkey.com/png/detail/203-2035339_register-user-register-online-icon-png.png"
