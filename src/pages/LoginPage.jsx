@@ -27,7 +27,7 @@ const LoginPage = () => {
   };
 
   return (
-    <MUI.Card sx={{ maxWidth: '50%' }}>
+    <MUI.Card sx={{ maxWidth: '50%', backgroundColor: '#bba095' }}>
       <MUI.CardMedia
         sx={{ height: 500 }}
         image="https://img.freepik.com/premium-vector/online-registration-and-sign-up-with-man-sitting-near-smartphone_268404-95.jpg"
