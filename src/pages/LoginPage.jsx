@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operationsAuth';
+import MUI from 'components/MUI';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -26,34 +27,70 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h1>Page of LogIn</h1>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="">
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Choose your Email"
-          />
-        </label>
+    <MUI.Card sx={{ maxWidth: '50%' }}>
+      <MUI.CardMedia
+        sx={{ height: 500 }}
+        image="https://img.freepik.com/premium-vector/online-registration-and-sign-up-with-man-sitting-near-smartphone_268404-95.jpg"
+        title="login"
+      />
+      <div>
+        <h1>Page of LogIn</h1>
+        <form onSubmit={handleSubmit} autoComplete="off" style={{ width: 450 }}>
+          <label
+            htmlFor=""
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 30,
+              marginLeft: 30,
+            }}
+          >
+            {/* Email */}
+            <MUI.TextField
+              label="Email"
+              focused
+              required
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="Choose your Email"
+            />
+          </label>
 
-        <label htmlFor="">
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Choose your Password"
-          />
-        </label>
+          <label
+            htmlFor=""
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 30,
+              marginLeft: 30,
+            }}
+          >
+            {/* Password */}
+            <MUI.TextField
+              label="Password"
+              focused
+              required
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Choose your Password"
+            />
+          </label>
 
-        <button type="submit">Log In</button>
-      </form>
-    </div>
+          <MUI.Button
+            sx={{ marginBottom: 3 }}
+            variant="contained"
+            color="primary"
+            type="submit"
+          >
+            Log In
+          </MUI.Button>
+        </form>
+      </div>
+    </MUI.Card>
   );
 };
 
