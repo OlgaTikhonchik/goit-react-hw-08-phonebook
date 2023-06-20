@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operationsAuth';
+import MUI from 'components/MUI';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -30,44 +31,91 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
-      <h1>Page of registration</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="">
-          Name
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            placeholder="Choose your Name"
-          />
-        </label>
+    <MUI.Card sx={{ maxWidth: '50%', height: 850 }}>
+      <MUI.CardMedia
+        sx={{ height: 450 }}
+        image="https://www.pngkey.com/png/detail/203-2035339_register-user-register-online-icon-png.png"
+        title="register"
+      />
+      <div>
+        <h1>Page of registration</h1>
+        <form onSubmit={handleSubmit} style={{ width: 450 }}>
+          <label
+            htmlFor=""
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 30,
+              marginLeft: 30,
+            }}
+          >
+            {/* Name */}
+            <MUI.TextField
+              label="Name"
+              focused
+              required
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              placeholder="Choose your Name"
+            />
+          </label>
 
-        <label htmlFor="">
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Choose your Email"
-          />
-        </label>
-        <label htmlFor="">
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Choose your Password"
-          />
-        </label>
+          <label
+            htmlFor=""
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 30,
+              marginLeft: 30,
+            }}
+          >
+            {/* Email */}
+            <MUI.TextField
+              label="Email"
+              focused
+              required
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="Choose your Email"
+            />
+          </label>
+          <label
+            htmlFor=""
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 30,
+              marginLeft: 30,
+            }}
+          >
+            {/* Password */}
+            <MUI.TextField
+              label="Password"
+              focused
+              required
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Choose your Password"
+            />
+          </label>
 
-        <button type="submit">Register</button>
-      </form>
-    </div>
+          <MUI.Button
+            sx={{ marginBottom: 3 }}
+            variant="contained"
+            color="success"
+            type="submit"
+          >
+            Register{' '}
+          </MUI.Button>
+        </form>
+      </div>
+    </MUI.Card>
   );
 };
 
