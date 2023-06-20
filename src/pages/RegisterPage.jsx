@@ -4,6 +4,7 @@ import { register } from 'redux/auth/operationsAuth';
 import MUI from 'components/MUI';
 import { useAuth } from 'hooks/useAuth';
 import { Navigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,18 @@ const RegisterPage = () => {
     dispatch(register({ name, email, password }))
       .unwrap()
       .then(() => {
+        toast.success('Successfully registered!', {
+          position: 'top-right',
+        });
         setName('');
         setEmail('');
         setPassword('');
       })
       .catch(error => {
-        alert('Entered incorrect data, try again');
+        // alert('Entered incorrect data, try again');
+        toast.error('Entered incorrect data, try again', {
+          position: 'top-right',
+        });
         throw new Error(error.message);
       });
 

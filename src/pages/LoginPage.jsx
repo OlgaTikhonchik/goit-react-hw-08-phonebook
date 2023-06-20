@@ -4,6 +4,7 @@ import { logIn } from 'redux/auth/operationsAuth';
 import MUI from 'components/MUI';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -20,7 +21,10 @@ const LoginPage = () => {
         setPassword('');
       })
       .catch(error => {
-        alert('Entered incorrect data, try again');
+        // alert('Entered incorrect data, try again');
+        toast.error('Entered incorrect data, try again', {
+          position: 'top-right',
+        });
         throw new Error(error.message);
       });
 
