@@ -31,9 +31,6 @@ const RegisterPage = () => {
     dispatch(register({ name, email, password }))
       .unwrap()
       .then(() => {
-        toast.success('Successfully registered!', {
-          position: 'top-right',
-        });
         setName('');
         setEmail('');
         setPassword('');
