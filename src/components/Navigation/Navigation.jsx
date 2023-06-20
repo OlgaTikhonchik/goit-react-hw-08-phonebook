@@ -5,7 +5,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import RecentActorsIcon from '@mui/icons-material/RecentActors';
 
 export const Navigation = () => {
-  const { IsLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   return (
     // <nav>
 
@@ -14,7 +14,11 @@ export const Navigation = () => {
         variant="h6"
         noWrap
         component="div"
-        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+        sx={{
+          flexGrow: 1,
+          display: { xs: 'none', sm: 'block' },
+          fontWeight: 700,
+        }}
       >
         PHONEBOOK
       </MUI.Typography>
@@ -29,7 +33,7 @@ export const Navigation = () => {
         </MUI.Button>
       </NavLink>
 
-      {IsLoggedIn && (
+      {isLoggedIn && (
         <NavLink to="/contacts">
           <MUI.Button
             startIcon={<RecentActorsIcon />}

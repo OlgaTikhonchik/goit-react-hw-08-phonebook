@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operationsAuth';
 import MUI from 'components/MUI';
+import { useAuth } from 'hooks/useAuth';
+import { Navigate } from 'react-router-dom';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isLoggedIn } = useAuth();
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -24,11 +27,27 @@ const RegisterPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
+    dispatch(register({ name, email, password }))
+      .unwrap()
+      .then(() => {
+        setName('');
+        setEmail('');
+        setPassword('');
+      })
+      .catch(error => {
+        alert('Entered incorrect data, try again');
+        throw new Error(error.message);
+      });
+
+    // dispatch(register({ name, email, password }));
+    // setName('');
+    // setEmail('');
+    // setPassword('');
   };
+
+  if (isLoggedIn) {
+    return <Navigate to="/contacts" />;
+  }
 
   return (
     <MUI.Card sx={{ maxWidth: '50%', height: 850, backgroundColor: '#bba095' }}>
@@ -38,7 +57,7 @@ const RegisterPage = () => {
         title="register"
       />
       <div>
-        <h1>Page of registration</h1>
+        <h1 style={{ color: '#653463' }}>Page of registration</h1>
         <form onSubmit={handleSubmit} style={{ width: 450 }}>
           <label
             htmlFor=""

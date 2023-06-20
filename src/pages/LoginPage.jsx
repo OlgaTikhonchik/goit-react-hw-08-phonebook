@@ -2,18 +2,36 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operationsAuth';
 import MUI from 'components/MUI';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from 'hooks/useAuth';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(logIn({ email, password }));
-    setEmail('');
-    setPassword('');
+    dispatch(logIn({ email, password }))
+      .unwrap()
+      .then(() => {
+        setEmail('');
+        setPassword('');
+      })
+      .catch(error => {
+        alert('Entered incorrect data, try again');
+        throw new Error(error.message);
+      });
+
+    // dispatch(logIn({ email, password }));
+    // setEmail('');
+    // setPassword('');
   };
+
+  if (isLoggedIn) {
+    return <Navigate to="/contacts" />;
+  }
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -34,7 +52,7 @@ const LoginPage = () => {
         title="login"
       />
       <div>
-        <h1>Page of LogIn</h1>
+        <h1 style={{ color: '#653463' }}>Page of LogIn</h1>
         <form onSubmit={handleSubmit} autoComplete="off" style={{ width: 450 }}>
           <label
             htmlFor=""
